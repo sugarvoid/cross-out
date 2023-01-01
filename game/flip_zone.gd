@@ -5,6 +5,8 @@ extends Area2D
 # var a = 2
 # var b = "text"
 
+var score: int = 10
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,5 +18,6 @@ func _ready():
 #	pass
 
 func _on_player_entered(body: Node2D):
-	if body.has_method("toggle_x"):
-		body.toggle_x()
+	if body.has_method("hit_target"):
+		body.hit_target(self.score)
+		$AnimationPlayer.play("flip_over")
