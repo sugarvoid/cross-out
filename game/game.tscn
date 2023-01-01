@@ -14,20 +14,26 @@ position = Vector2( 344, 282 )
 [node name="FlipZone" parent="." instance=ExtResource( 2 )]
 position = Vector2( 58, 113 )
 
+[node name="FlipZone7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 62, 251 )
+
 [node name="FlipZone2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 981, 301 )
+position = Vector2( 968, 393 )
+
+[node name="FlipZone8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 965, 239 )
 
 [node name="FlipZone3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 976, 98 )
 
 [node name="FlipZone4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 76, 275 )
+position = Vector2( 66, 391 )
 
 [node name="FlipZone5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 64, 484 )
+position = Vector2( 64, 522 )
 
 [node name="FlipZone6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 969, 502 )
+position = Vector2( 971, 519 )
 
 [node name="KillZone" parent="." instance=ExtResource( 4 )]
 position = Vector2( -95, 331 )

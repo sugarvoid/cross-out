@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 signal has_hit_target(score_amount) # int
 
-var jump_speed = -400
+var jump_force = 300
 var gravity = 700
 var velocity = Vector2.ZERO
 var jump_next = false
@@ -26,7 +26,7 @@ func _physics_process(delta):
 		if velocity.y > 0:
 			velocity.y = 0
 
-		velocity.y += jump_speed
+		velocity.y -= jump_force
 		velocity.y = max(velocity.y, -400)
 
 	global_position.x += x_movement * delta
