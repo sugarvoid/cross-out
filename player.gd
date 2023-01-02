@@ -9,7 +9,10 @@ var velocity = Vector2.ZERO
 var jump_next = false
 var is_alive = true
 var screen_size
-var x_movement = 400
+var x_movement = 500
+
+func get_class() -> String:
+	return "Player"
 
 func _ready():
 	screen_size = get_viewport_rect().size
@@ -40,5 +43,5 @@ func _toggle_x() -> void:
 	self.x_movement = x_movement * -1
 	
 
-func _went_off_screen():
+func went_off_screen():
 	print("went off screen")
