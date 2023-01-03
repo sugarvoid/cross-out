@@ -21,4 +21,4 @@ func _process(delta):
 
 func _update_score(score: int):
 	player_score += score
-	$HUD/LblScore.text = str("Scrore: ", player_score)
+	$HUD/LblScore.text = str("Score: ", player_score)

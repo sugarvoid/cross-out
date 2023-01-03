@@ -1,39 +1,49 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://game/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/target.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/game.gd" type="Script" id=3]
 [ext_resource path="res://kill_zone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://background.png" type="Texture" id=5]
+[ext_resource path="res://background_front.png" type="Texture" id=6]
+[ext_resource path="res://game/font/Smart Basic 9h.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+centered = false
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 344, 282 )
 
 [node name="FlipZone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 58, 113 )
+position = Vector2( 84, 149 )
 
 [node name="FlipZone7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 62, 251 )
+position = Vector2( 84, 265 )
 
 [node name="FlipZone2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 968, 393 )
+position = Vector2( 941, 416 )
 
 [node name="FlipZone8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 965, 239 )
+position = Vector2( 940, 214 )
 
 [node name="FlipZone3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 976, 98 )
+position = Vector2( 939, 123 )
 
 [node name="FlipZone4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 66, 391 )
+position = Vector2( 84, 389 )
 
 [node name="FlipZone5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 64, 522 )
+position = Vector2( 83, 509 )
 
 [node name="FlipZone6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 971, 519 )
+position = Vector2( 943, 506 )
 
 [node name="KillZone" parent="." instance=ExtResource( 4 )]
 position = Vector2( -95, 331 )
@@ -49,18 +59,25 @@ rotation = 1.5708
 position = Vector2( 506, -85 )
 rotation = 1.5708
 
+[node name="BackgroundFront" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+centered = false
+
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LblScore" type="RichTextLabel" parent="HUD"]
-margin_right = 100.0
-margin_bottom = 40.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 36.0
+margin_top = 5.0
+margin_right = 136.0
+margin_bottom = 24.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "Score: 20 "
 
 [node name="LblFps" type="RichTextLabel" parent="HUD"]
-margin_left = 396.0
-margin_top = 2.0
-margin_right = 496.0
-margin_bottom = 42.0
+margin_left = 869.0
+margin_top = 6.0
+margin_right = 969.0
+margin_bottom = 46.0
 rect_scale = Vector2( 2, 2 )
 text = "FPS: 20 "
