@@ -10,7 +10,8 @@ const move_speed: int = 60
 
 var score: int = 10
 export var moving_dir: int
-
+onready var right_collision: CollisionShape2D = get_node("RightSide")
+onready var left_collision: CollisionShape2D = get_node("LeftSide")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	_move(self.moving_dir, delta)
+
 
 
 func _move(y_direction: int, delta: float) -> void:

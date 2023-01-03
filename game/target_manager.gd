@@ -36,13 +36,16 @@ func _spawn_taget(side: int, direction: int = 1) -> void:
 func _spawn_left() -> void:
 	var new_target: Target = p_Target.instance()
 	new_target.moving_dir = 1
+	
 	new_target.global_position = self.left_spawn_pos.global_position
 	self.target_container.add_child(new_target)
+	new_target.remove_child(new_target.left_collision)
 	
 
 func _spawn_right() -> void:
 	var new_target: Target = p_Target.instance()
 	new_target.moving_dir = -1
+	
 	new_target.global_position = self.right_spawn_pos.global_position
 	self.target_container.add_child(new_target)
-	
+	new_target.remove_child(new_target.right_collision)

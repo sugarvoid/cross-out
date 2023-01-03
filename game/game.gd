@@ -10,6 +10,7 @@ var player: Player
 
 onready var tmr_start_player: Timer = get_node("TmrStart")
 onready var player_killzone: Area2D = get_node("KillZone")
+onready var lbl_score: RichTextLabel = get_node("HUD/LblScore")
 
 
 func _ready():
@@ -32,4 +33,4 @@ func _on_player_off_screen(body: Node) -> void:
 
 func _update_score(score: int):
 	player_score += score
-	$HUD/LblScore.text = str("Score: ", player_score)
+	lbl_score.text = str("Score: ", player_score)
