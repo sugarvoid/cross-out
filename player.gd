@@ -11,6 +11,9 @@ var is_alive = true
 var screen_size
 var x_movement = 500
 
+
+var in_play: bool = false
+
 func get_class() -> String:
 	return "Player"
 
@@ -23,17 +26,18 @@ func _input(event):
 		self.jump_next = true
 
 func _physics_process(delta):
-	velocity.y += gravity * delta
-	if jump_next:
-		jump_next = false
-		if velocity.y > 0:
-			velocity.y = 0
+	if self.in_play:
+		velocity.y += gravity * delta
+		if jump_next:
+			jump_next = false
+			if velocity.y > 0:
+				velocity.y = 0
 
-		velocity.y -= jump_force
-		velocity.y = max(velocity.y, -400)
+			velocity.y -= jump_force
+			velocity.y = max(velocity.y, -400)
 
-	global_position.x += x_movement * delta
-	velocity = move_and_slide(velocity)
+		global_position.x += x_movement * delta
+		velocity = move_and_slide(velocity)
 
 func hit_target(score: int) -> void:
 	emit_signal("has_hit_target", score)

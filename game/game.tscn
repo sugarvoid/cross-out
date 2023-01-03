@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://game/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/target.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/game.gd" type="Script" id=3]
-[ext_resource path="res://kill_zone.tscn" type="PackedScene" id=4]
 [ext_resource path="res://background.png" type="Texture" id=5]
 [ext_resource path="res://background_front.png" type="Texture" id=6]
 [ext_resource path="res://game/font/Smart Basic 9h.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://game/target_manager.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )
@@ -18,46 +17,23 @@ script = ExtResource( 3 )
 texture = ExtResource( 5 )
 centered = false
 
+[node name="TargetManager" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="Targats" type="Node2D" parent="TargetManager"]
+
+[node name="LeftTop" type="Position2D" parent="TargetManager"]
+position = Vector2( 84, -40 )
+
+[node name="RightBottom" type="Position2D" parent="TargetManager"]
+position = Vector2( 940, 640 )
+
+[node name="TmrLeft" type="Timer" parent="TargetManager"]
+
+[node name="TmrRight" type="Timer" parent="TargetManager"]
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 344, 282 )
-
-[node name="FlipZone" parent="." instance=ExtResource( 2 )]
-position = Vector2( 84, 149 )
-
-[node name="FlipZone7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 84, 265 )
-
-[node name="FlipZone2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 941, 416 )
-
-[node name="FlipZone8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 940, 214 )
-
-[node name="FlipZone3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 939, 123 )
-
-[node name="FlipZone4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 84, 389 )
-
-[node name="FlipZone5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 83, 509 )
-
-[node name="FlipZone6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 943, 506 )
-
-[node name="KillZone" parent="." instance=ExtResource( 4 )]
-position = Vector2( -95, 331 )
-
-[node name="KillZone2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1086, 321 )
-
-[node name="KillZone3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 521, 677 )
-rotation = 1.5708
-
-[node name="KillZone4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 506, -85 )
-rotation = 1.5708
 
 [node name="BackgroundFront" type="Sprite" parent="."]
 texture = ExtResource( 6 )
@@ -81,3 +57,10 @@ margin_right = 969.0
 margin_bottom = 46.0
 rect_scale = Vector2( 2, 2 )
 text = "FPS: 20 "
+
+[node name="TmrStart" type="Timer" parent="."]
+
+[node name="KillZone" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillZone"]
+polygon = PoolVector2Array( -64, -54, 1058, -54, 1061, 649, -74, 650, -71, -42, -123, -42, -123, 698, 1091, 698, 1091, -112, -66, -110 )
