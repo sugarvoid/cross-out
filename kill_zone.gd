@@ -1,7 +1,6 @@
 extends Area2D
 
 
-
 func _ready():
 	self.connect("body_entered", self, "_on_body_entered")
 

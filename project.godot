@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Hazard",
+"language": "GDScript",
+"path": "res://game/object/hazard/hazard.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://game/object/target/target.gd"
 } ]
 _global_script_class_icons={
+"Hazard": "",
 "Player": "",
 "Target": ""
 }
@@ -33,6 +39,10 @@ config/icon="res://icon.png"
 
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[global]
+
+hint=false
 
 [gui]
 
