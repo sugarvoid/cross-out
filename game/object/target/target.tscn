@@ -2,7 +2,7 @@
 
 [ext_resource path="res://game/font/Smart Basic 9h.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://game/object/target/target.gd" type="Script" id=2]
-[ext_resource path="res://box_green.png" type="Texture" id=3]
+[ext_resource path="res://game/object/target/box_green.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 1 )
@@ -12,6 +12,7 @@ extents = Vector2( 4, 30 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "flip_over"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
 tracks/0/interp = 1
@@ -19,10 +20,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 0.5, 0 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/LblPonits:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [node name="Target" type="Area2D"]
@@ -54,3 +67,5 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/flip_over = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]

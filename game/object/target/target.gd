@@ -2,16 +2,18 @@ class_name Target
 extends Area2D
 
 
-const move_speed: int = 90
+var move_speed: int = 90
 
 onready var right_collision: CollisionShape2D = get_node("RightSide")
 onready var left_collision: CollisionShape2D = get_node("LeftSide")
+onready var vis_noti: VisibilityNotifier2D = get_node("VisibilityNotifier2D")
 
 var score: int = 10
 var moving_dir: int
 
 func _ready():
 	self.connect("body_entered", self, "_on_player_entered")
+	self.vis_noti.connect("screen_exited", self, "queue_free")
 
 func _physics_process(delta):
 	_move(self.moving_dir, delta)

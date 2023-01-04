@@ -14,10 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://game/object/hazard/hazard.gd"
 }, {
+"base": "Node2D",
+"class": "HazardManager",
+"language": "GDScript",
+"path": "res://game/manager/hazard_manager.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://player.gd"
+"path": "res://game/player/player.gd"
 }, {
 "base": "Area2D",
 "class": "Target",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Hazard": "",
+"HazardManager": "",
 "Player": "",
 "Target": ""
 }
@@ -33,6 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="cross-out"
+run/main_scene="res://game/start_screen.tscn"
 config/icon="res://icon.png"
 
 [display]

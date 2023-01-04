@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.svg-6d2d65638c721fdbfc24387a7aa9f5c1.stex"
+path="res://.import/target_red.svg-8e1a14ce0171f224312cd6d896464643.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player.svg"
-dest_files=[ "res://.import/player.svg-6d2d65638c721fdbfc24387a7aa9f5c1.stex" ]
+source_file="res://game/object/target/target_red.svg"
+dest_files=[ "res://.import/target_red.svg-8e1a14ce0171f224312cd6d896464643.stex" ]
 
 [params]
 

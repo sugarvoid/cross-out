@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://game/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/object/hazard/hazard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/manager/hazard_manager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game/game.gd" type="Script" id=3]
-[ext_resource path="res://background.png" type="Texture" id=5]
-[ext_resource path="res://background_front.png" type="Texture" id=6]
+[ext_resource path="res://game/background/background.png" type="Texture" id=5]
+[ext_resource path="res://game/background/background_front.png" type="Texture" id=6]
 [ext_resource path="res://game/font/Smart Basic 9h.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://game/target_manager.gd" type="Script" id=8]
+[ext_resource path="res://game/manager/target_manager.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )
@@ -17,6 +17,8 @@ script = ExtResource( 3 )
 [node name="Background" type="Sprite" parent="."]
 texture = ExtResource( 5 )
 centered = false
+
+[node name="HazardManager" parent="." instance=ExtResource( 2 )]
 
 [node name="TargetManager" type="Node2D" parent="."]
 script = ExtResource( 8 )
@@ -32,12 +34,6 @@ position = Vector2( 940, 640 )
 [node name="TmrLeft" type="Timer" parent="TargetManager"]
 
 [node name="TmrRight" type="Timer" parent="TargetManager"]
-
-[node name="HazardManager" type="Node2D" parent="."]
-
-[node name="Hazard" parent="HazardManager" instance=ExtResource( 2 )]
-position = Vector2( 583, 247 )
-scale = Vector2( 0.5, 0.5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 344, 282 )
