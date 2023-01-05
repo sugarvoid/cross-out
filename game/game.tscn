@@ -56,7 +56,7 @@ position = Vector2( 940, 640 )
 [node name="TmrRight" type="Timer" parent="TargetManager"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 344, 282 )
+position = Vector2( 321, 326 )
 
 [node name="BackgroundFront" type="Sprite" parent="."]
 texture = ExtResource( 6 )
@@ -91,6 +91,18 @@ margin_bottom = 185.0
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 2 )
 text = "SPEED UP"
+
+[node name="LblInfo" type="Label" parent="HUD"]
+visible = false
+margin_left = 201.0
+margin_top = 153.0
+margin_right = 608.0
+margin_bottom = 185.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 2 )
+text = "[info text"
+align = 1
+valign = 1
 
 [node name="TmrStart" type="Timer" parent="."]
 
