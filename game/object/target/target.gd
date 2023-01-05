@@ -2,13 +2,13 @@ class_name Target
 extends Area2D
 
 
-var move_speed: int = 90
+var move_speed: int = 120
 
 onready var right_collision: CollisionShape2D = get_node("RightSide")
 onready var left_collision: CollisionShape2D = get_node("LeftSide")
 onready var vis_noti: VisibilityNotifier2D = get_node("VisibilityNotifier2D")
 
-var score: int = 10
+var value: int = 10
 var moving_dir: int
 
 func _ready():
@@ -23,5 +23,5 @@ func _move(y_direction: int, delta: float) -> void:
 
 func _on_player_entered(body: Node2D):
 	if body.has_method("hit_target"):
-		body.hit_target(self.score)
+		body.hit_target(self.value)
 		$AnimationPlayer.play("flip_over")

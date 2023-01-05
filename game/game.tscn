@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://game/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/manager/hazard_manager.tscn" type="PackedScene" id=2]
@@ -10,6 +10,26 @@
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "flash_lbl_speed"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD/LblSpeedUp:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false, true, false, true, true, false ]
+}
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
@@ -61,6 +81,17 @@ margin_bottom = 46.0
 rect_scale = Vector2( 2, 2 )
 text = "FPS: 20 "
 
+[node name="LblSpeedUp" type="Label" parent="HUD"]
+visible = false
+modulate = Color( 1, 1, 1, 0.388235 )
+margin_left = 421.0
+margin_top = 153.0
+margin_right = 529.0
+margin_bottom = 185.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 2 )
+text = "SPEED UP"
+
 [node name="TmrStart" type="Timer" parent="."]
 
 [node name="KillZone" type="Area2D" parent="."]
@@ -69,3 +100,6 @@ text = "FPS: 20 "
 polygon = PoolVector2Array( -64, -54, 1058, -54, 1061, 649, -74, 650, -71, -42, -123, -42, -123, 698, 1091, 698, 1091, -112, -66, -110 )
 
 [node name="TmrSpeedUp" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/flash_lbl_speed = SubResource( 3 )

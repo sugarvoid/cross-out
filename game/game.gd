@@ -40,8 +40,9 @@ func _on_player_off_screen(body: Node) -> void:
 		print("player off screen.")
 
 func _update_score(score: int):
-	player_score += score
-	lbl_score.text = str("Score: ", player_score)
+	self.player_score += score
+	self.lbl_score.text = str("Score: ", self.player_score)
 
 func _speed_up_player() -> void:
+	$AnimationPlayer.play("flash_lbl_speed")
 	self.player.increase_speed()

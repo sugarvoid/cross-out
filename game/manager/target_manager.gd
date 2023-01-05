@@ -15,8 +15,8 @@ func _ready():
 	self._start_spawn_timers()
 
 func _start_spawn_timers() -> void:
-	self.tmr_left.start(2.0)
-	self.tmr_right.start(2.0)
+	self.tmr_left.start(1.5)
+	self.tmr_right.start(1.5)
 
 func _connect_signals() -> void:
 	self.tmr_left.connect("timeout", self, "_spawn_left")

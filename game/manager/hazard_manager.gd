@@ -2,6 +2,7 @@ class_name HazardManager
 extends Node2D
 
 
+
 const p_Hazard: PackedScene = preload("res://game/object/hazard/hazard.tscn")
 
 onready var hazard_container: Node2D = get_node("HazardContainer")

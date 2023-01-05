@@ -19,7 +19,7 @@ func get_class() -> String:
 	return "Player"
 
 func _ready():
-	screen_size = get_viewport_rect().size
+	self.screen_size = get_viewport_rect().size
 	self.x_movement = self.STARTING_SPEED
 
 func _input(event):
@@ -27,7 +27,7 @@ func _input(event):
 		self.jump_next = true
 
 func _is_moving_right() -> bool:
-	if x_movement < 0:
+	if self.x_movement < 0:
 		return false
 	else:
 		return true
@@ -60,7 +60,9 @@ func increase_speed() -> void:
 		self.x_movement -= self.SPEED_UP_AMOUNT
 	
 	print(str("Player speed is now ", self.x_movement))
-	
+
+func take_damage() -> void:
+	print("player has hit hazard")
 
 #func went_off_screen():
 #	print("went off screen")
