@@ -19,6 +19,7 @@ onready var lbl_fps: RichTextLabel = get_node("HUD/LblFps")
 func _ready():
 	self.player = get_node("Player")
 	self._connect_signals()
+	self._drop_in_player()
 	self.tmr_move_speed_up.start(10)
 	_update_score(player_score)
 
@@ -43,6 +44,9 @@ func _input(event):
 func _process(delta):
 	self.lbl_fps.text = str("FPS: ", Engine.get_frames_per_second())
 
+func _drop_in_player() -> void:
+	$AnimationPlayer.play("drop_in_player")
+
 func _on_player_off_screen(body: Node) -> void:
 	if body.get_class() == "Player":
 		print("player off screen.")
@@ -62,6 +66,8 @@ func _speed_up_player() -> void:
 
 func _gameover() -> void:
 	_send_info_to_label("Game Over")
+	self.player.global_position = $PosPlayerSpawn.global_position
+	self.player.in_play = false
 	self.tmr_move_speed_up.stop()
 	remove_child($HazardManager)
 	remove_child($TargetManager)
