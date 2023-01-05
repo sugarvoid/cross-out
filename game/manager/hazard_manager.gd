@@ -10,7 +10,7 @@ onready var tmr_haz_spawner: Timer = get_node("TmrHazardSpawner")
 
 func _ready() -> void:
 	self.tmr_haz_spawner.connect("timeout", self, "_on_spawner_timeout")
-	tmr_haz_spawner.start(1)
+	tmr_haz_spawner.start(4)
 
 func _get_rand_spawn_pos() -> Vector2:
 	randomize()

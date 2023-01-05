@@ -21,7 +21,7 @@ position = Vector2( -12, -201 )
 position = Vector2( 4, 208 )
 
 [node name="Left" type="Position2D" parent="SpawnZone"]
-position = Vector2( -302, 0 )
+position = Vector2( -281, 0 )
 
 [node name="Right" type="Position2D" parent="SpawnZone"]
 position = Vector2( 365, -6 )

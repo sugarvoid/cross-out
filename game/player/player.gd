@@ -26,6 +26,12 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		self.jump_next = true
 
+func _is_moving_right() -> bool:
+	if x_movement < 0:
+		return false
+	else:
+		return true
+
 func _physics_process(delta):
 	if self.in_play:
 		velocity.y += gravity * delta
@@ -48,7 +54,13 @@ func _toggle_x() -> void:
 	self.x_movement = x_movement * -1
 
 func increase_speed() -> void:
-	self.x_movement += self.SPEED_UP_AMOUNT
+	if self._is_moving_right():
+		self.x_movement += self.SPEED_UP_AMOUNT
+	else:
+		self.x_movement -= self.SPEED_UP_AMOUNT
+	
+	print(str("Player speed is now ", self.x_movement))
+	
 
 #func went_off_screen():
 #	print("went off screen")

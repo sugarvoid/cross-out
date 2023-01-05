@@ -67,3 +67,5 @@ text = "FPS: 20 "
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KillZone"]
 polygon = PoolVector2Array( -64, -54, 1058, -54, 1061, 649, -74, 650, -71, -42, -123, -42, -123, 698, 1091, 698, 1091, -112, -66, -110 )
+
+[node name="TmrSpeedUp" type="Timer" parent="."]
