@@ -11,7 +11,6 @@ var gravity = 700
 var velocity = Vector2.ZERO
 var jump_next = false
 var is_alive = true
-var screen_size
 var x_movement: int
 var in_play: bool = false
 
@@ -19,7 +18,6 @@ func get_class() -> String:
 	return "Player"
 
 func _ready():
-	self.screen_size = get_viewport_rect().size
 	self.x_movement = self.STARTING_SPEED
 
 func _input(event):

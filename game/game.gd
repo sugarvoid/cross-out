@@ -32,7 +32,6 @@ func _connect_signals() -> void:
 func _start_player() -> void:
 	$HUD/LblInfo.visible = false
 	self.player.in_play = true
-	
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
