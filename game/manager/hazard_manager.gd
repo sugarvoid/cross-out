@@ -7,6 +7,7 @@ const p_Hazard: PackedScene = preload("res://game/object/hazard/hazard.tscn")
 
 onready var hazard_container: Node2D = get_node("HazardContainer")
 onready var tmr_haz_spawner: Timer = get_node("TmrHazardSpawner")
+onready var spawn_checker: Area2D = get_node("SpawnChecker")
 
 
 func _ready() -> void:

@@ -2,6 +2,7 @@ extends Node2D
 
 
 const p_Target: PackedScene = preload("res://game/object/target/target.tscn")
+const AMOUNTS: Array = [5, 10, 15, 20, 25, 30]
 
 onready var right_spawn_pos: Position2D = get_node("RightBottom")
 onready var left_spawn_pos: Position2D = get_node("LeftTop")
@@ -27,6 +28,7 @@ func _spawn_taget(side: int, direction: int = 1) -> void:
 
 func _spawn_left() -> void:
 	var new_target: Target = p_Target.instance()
+	new_target.set_point_value(_get_rand_array_item(AMOUNTS))
 	new_target.moving_dir = 1
 	
 	new_target.global_position = self.left_spawn_pos.global_position
@@ -35,8 +37,16 @@ func _spawn_left() -> void:
 
 func _spawn_right() -> void:
 	var new_target: Target = p_Target.instance()
+	new_target.set_point_value(_get_rand_array_item(AMOUNTS))
 	new_target.moving_dir = -1
 	
 	new_target.global_position = self.right_spawn_pos.global_position
 	self.target_container.add_child(new_target)
 	new_target.remove_child(new_target.right_collision)
+
+func _add_target_to_screen(pos: Vector2) -> void:
+	pass
+
+func _get_rand_array_item(a: Array):
+	randomize()
+	return a[randi() % a.size()]

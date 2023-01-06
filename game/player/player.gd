@@ -5,6 +5,7 @@ signal has_hit_target(score_amount) # int
 
 const STARTING_SPEED: int = 300 
 const SPEED_UP_AMOUNT: int = 100 
+const MAX_X_SPEED: int = 700
 
 var jump_force = 300
 var gravity = 700
@@ -12,6 +13,7 @@ var velocity = Vector2.ZERO
 var jump_next = false
 var is_alive = true
 var x_movement: int
+
 var in_play: bool = false
 
 func get_class() -> String:
@@ -62,5 +64,4 @@ func increase_speed() -> void:
 func take_damage() -> void:
 	print("player has hit hazard")
 
-#func went_off_screen():
-#	print("went off screen")
+
