@@ -64,7 +64,8 @@ func _send_info_to_label(s: String) -> void:
 	$HUD/LblInfo.text = s
 
 func _update_score(score: int):
-	self.player_score += score
+	#self.player_score += score
+	self.player_score = clamp(player_score + score, 0, 9999)
 	self.lbl_score.text = str("Score: ", self.player_score)
 
 func _speed_up_player() -> void:

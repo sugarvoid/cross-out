@@ -16,12 +16,19 @@ func _ready():
 	self.connect("body_entered", self, "_on_player_entered")
 	self.vis_noti.connect("screen_exited", self, "queue_free")
 	self._update_lbl_value()
+	self._update_sprite()
 
 func _physics_process(delta):
 	_move(self.moving_dir, delta)
 
 func set_point_value(n: int) -> void:
 	self.value = n
+
+func _update_sprite() -> void:
+	if self.value > 0:
+		$Sprite.frame = 2
+	else:
+		$Sprite.frame = 1
 
 func _update_lbl_value() -> void:
 	self.lbl_value.text = str(self.value)

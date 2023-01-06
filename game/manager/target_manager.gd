@@ -2,7 +2,7 @@ extends Node2D
 
 
 const p_Target: PackedScene = preload("res://game/object/target/target.tscn")
-const AMOUNTS: Array = [5, 10, 15, 20, 25, 30]
+const AMOUNTS: Array = [5, -5, 10, -10, 15, 20, 25, 30]
 
 onready var right_spawn_pos: Position2D = get_node("RightBottom")
 onready var left_spawn_pos: Position2D = get_node("LeftTop")
