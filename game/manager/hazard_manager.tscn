@@ -15,16 +15,16 @@ script = ExtResource( 1 )
 position = Vector2( 496, 286 )
 
 [node name="Top" type="Position2D" parent="SpawnZone"]
-position = Vector2( -12, -201 )
+position = Vector2( 2, -200 )
 
 [node name="Bottom" type="Position2D" parent="SpawnZone"]
 position = Vector2( 4, 208 )
 
 [node name="Left" type="Position2D" parent="SpawnZone"]
-position = Vector2( -281, 0 )
+position = Vector2( -309, -15 )
 
 [node name="Right" type="Position2D" parent="SpawnZone"]
-position = Vector2( 365, -6 )
+position = Vector2( 342, -6 )
 
 [node name="TmrHazardSpawner" type="Timer" parent="."]
 
