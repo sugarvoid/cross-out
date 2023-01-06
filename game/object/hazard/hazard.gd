@@ -29,7 +29,7 @@ func _start_timer() -> void:
 
 func _on_player_collide(body: Node) -> void:
 	if body.get_class() == "Player":
-		body.take_damage()
+		body.fall_down()
 	
 func _on_life_timer_timeout() -> void:
 	# TODO: Add a fade out animation 

@@ -6,6 +6,7 @@ const MAX_LIVES: int = 3
 var player_score: int 
 var player_lives: int
 var player: Player
+var is_game_over: bool = false
 
 onready var tmr_start_player: Timer = get_node("TmrStart")
 onready var tmr_move_speed_up: Timer = get_node("TmrSpeedUp")
@@ -14,6 +15,8 @@ onready var player_killzone: Area2D = get_node("KillZone")
 
 onready var lbl_score: RichTextLabel = get_node("HUD/LblScore")
 onready var lbl_fps: RichTextLabel = get_node("HUD/LblFps")
+
+onready var ani_player: AnimationPlayer = get_node("AnimationPlayer")
 
 
 func _ready():
@@ -39,12 +42,17 @@ func _input(event):
 			self.player.in_play = true
 		else:
 			return
+	if event.is_action_pressed("restart"):
+		if self.is_game_over:
+			pass
+			# TODO: Add way to restart game
+			# Restart game
 
 func _process(delta):
 	self.lbl_fps.text = str("FPS: ", Engine.get_frames_per_second())
 
 func _drop_in_player() -> void:
-	$AnimationPlayer.play("drop_in_player")
+	self.ani_player.play("drop_in_player")
 
 func _on_player_off_screen(body: Node) -> void:
 	if body.get_class() == "Player":
@@ -60,13 +68,15 @@ func _update_score(score: int):
 	self.lbl_score.text = str("Score: ", self.player_score)
 
 func _speed_up_player() -> void:
-	$AnimationPlayer.play("flash_lbl_speed")
+	self.ani_player.play("flash_lbl_speed")
 	self.player.increase_speed()
 
 func _gameover() -> void:
+	self.is_game_over = true
 	_send_info_to_label("Game Over")
 	self.player.global_position = $PosPlayerSpawn.global_position
 	self.player.in_play = false
 	self.tmr_move_speed_up.stop()
 	remove_child($HazardManager)
 	remove_child($TargetManager)
+	remove_child(self.player)

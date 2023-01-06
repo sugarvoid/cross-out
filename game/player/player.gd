@@ -15,6 +15,7 @@ var is_alive = true
 var x_movement: int
 
 var in_play: bool = false
+var is_falling: bool = false
 
 func get_class() -> String:
 	return "Player"
@@ -24,7 +25,8 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("ui_accept"):
-		self.jump_next = true
+		if !self.is_falling:
+			self.jump_next = true
 
 func _is_moving_right() -> bool:
 	if self.x_movement < 0:
@@ -61,7 +63,8 @@ func increase_speed() -> void:
 	
 	print(str("Player speed is now ", self.x_movement))
 
-func take_damage() -> void:
-	print("player has hit hazard")
 
+func fall_down() -> void:
+	self.is_falling = true
+	self.x_movement = 0
 
