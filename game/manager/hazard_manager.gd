@@ -12,7 +12,7 @@ onready var spawn_checker: Area2D = get_node("SpawnChecker")
 
 func _ready() -> void:
 	self.tmr_haz_spawner.connect("timeout", self, "_on_spawner_timeout")
-	tmr_haz_spawner.start(4)
+	
 
 func _get_rand_spawn_pos() -> Vector2:
 	randomize()
@@ -24,6 +24,8 @@ func _get_rand_spawn_pos() -> Vector2:
 func add_hazard_to_screen(pos: Vector2) -> void:
 	self.hazard_container.add_child(_create_hazard(pos))
 
+func start_hazard_timer() -> void:
+	tmr_haz_spawner.start(4)
 
 func _remove_hazard_to_screen(h: Hazard) -> void:
 	self.hazard_container.remove_child(h)
