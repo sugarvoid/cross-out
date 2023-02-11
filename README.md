@@ -1,4 +1,7 @@
-# cross-out
+# Cross Out
+
+## Info
+Hit green, avoid red. 
 
 https://user-images.githubusercontent.com/48969490/212430447-a15f02a8-31dc-4ab6-aa2f-5ce3a917b8cf.mp4
 
